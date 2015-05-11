@@ -30,9 +30,9 @@ var heartSketch = function(sketch){
     if(sketch.drawCycle%sketch.TIMES == 0) {
       sketch.heartbeat();
       //hL = cos(drawCycle*2)*.05 + .05;
-      sketch.hL = sketch.sin(2*sketch.drawCycle)*.05 + 0.05 +sketch.pow(sketch.sin(2*sketch.drawCycle),2)*0.05 + .05;
-      sketch.hR = sketch.sin(2*sketch.drawCycle)*-.02 + -0.02 +sketch.pow(sketch.sin(2*sketch.drawCycle),2)* -0.02 -.02;
-      sketch.hM = sketch.sin(2*sketch.drawCycle)*.02 + 0.02 +sketch.pow(sketch.sin(2*sketch.drawCycle),2)* 0.02 +.02;
+      sketch.hL = sketch.sin(3*sketch.drawCycle)*.05 + 0.05 +sketch.pow(sketch.sin(3*sketch.drawCycle),2)*0.05 + .05;
+      sketch.hR = sketch.sin(3*sketch.drawCycle)*-.02 + -0.02 +sketch.pow(sketch.sin(3*sketch.drawCycle),2)* -0.02 -.02;
+      sketch.hM = sketch.sin(3*sketch.drawCycle)*.02 + 0.02 +sketch.pow(sketch.sin(3*sketch.drawCycle),2)* 0.02 +.02;
       //hR = sin(drawCycle*2)*-.02 + -.02;
       //hM = sin(drawCycle*2)*.02 + .02;
       //incr = sin(drawCycle*2)*5 + 5;
@@ -44,7 +44,7 @@ var heartSketch = function(sketch){
     sketch.background(255);    
     sketch.strokeWeight(14); 
     //imageMode(CENTER);
-    sketch.translate(sketch.windowWidth/2-100, 80);
+    sketch.translate(sketch.width/2-100, 80);
     sketch.image(sketch.img,-5,-50, 210 + sketch.incr,140 +sketch.incr);
     sketch.randomSeed(2);
 
@@ -111,10 +111,12 @@ var heartSketch = function(sketch){
   } 
 
   sketch.branch = function(depth,depth2,h,r1,r2,r3,ht){ 
-
+    if(sketch.mouseY > 200){
+      r2 = sketch.map(sketch.mouseY,500, sketch.height, .2, .4);
+    }
     if (depth < depth2) {
-      sketch.line(0 ,0 ,0,sketch.windowHeight/ht);  
-        sketch.translate(0,sketch.windowHeight/ht);
+      sketch.line(0 ,0 ,0,sketch.height/ht);  
+        sketch.translate(0,sketch.height/ht);
         sketch.rotate(sketch.random(r1 + h,r2));  
         //rotate(h); 
        // translate(y,0);

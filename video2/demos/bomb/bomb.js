@@ -78,10 +78,12 @@ var bombSketch = function(sketch){
 
 				sketch.piecesArray[i].display();
 
+
+
 			
 		}
 
-		//console.log(millis());
+		//console.log(sketch.millis());
 	}
 
 
@@ -91,14 +93,15 @@ var bombSketch = function(sketch){
 	*/
 	sketch.Rect = function() {
 	   this.shape = [
-	             70+random(30,100), height-90+random(30,100)
-	           , 70+random(30,100), height-90+random(30,100)
-	           , 70+random(30,100), height-90+random(30,100)
-	           , 70+random(30,100), height-90+random(30,100)
+	             70+sketch.random(30,100), sketch.height-90+sketch.random(30,100)
+	           , 70+sketch.random(30,100), sketch.height-90+sketch.random(30,100)
+	           , 70+sketch.random(30,100), sketch.height-90+sketch.random(30,100)
+	           , 70+sketch.random(30,100), sketch.height-90+sketch.random(30,100)
 	   ];
 	       
-	    this.direction = new p5.Vector(random(-2,15), random(-50,-61));
+	    this.direction = new p5.Vector(sketch.random(-2,15), sketch.random(-50,-61));
 	    this.gravity = 0;
+	
 		this.display = function(){
 			sketch.fill(0);
 
@@ -117,9 +120,10 @@ var bombSketch = function(sketch){
 			
 
 			sketch.quad(this.shape[0],this.shape[1],this.shape[2],this.shape[3],this.shape[4],this.shape[5],this.shape[6],this.shape[7]);
-
+			
 		}
 
 	   }
+}
 
 	
